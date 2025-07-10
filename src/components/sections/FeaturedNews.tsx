@@ -1,14 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
-import { FeaturedNews } from "@/interfaces/front-news";
+import { TFeaturedNews } from "@/interfaces/common.type";
 
-const FeaturedNewsCard = ({
+const TFeaturedNewsCard = ({
   altText,
   description,
   href,
   imageUrl,
   title,
-}: FeaturedNews) => {
+}: TFeaturedNews) => {
   return (
     <Link href={href} className="gap-4 hover:text-cyan-700 grid grid-cols-12">
       <div className="relative aspect-4/3 col-span-full sm:col-span-5 md:col-span-3">
@@ -30,12 +30,12 @@ const FeaturedNewsCard = ({
   );
 };
 
-export default function FeaturedNewsBlocks({ data }: { data: FeaturedNews[] }) {
+export default function TFeaturedNewsBlocks({ data }: { data: TFeaturedNews[] }) {
   return (
     <div className="grid grid-cols-12 gap-4 mt-4">
       {data.map((news) => (
         <div className="col-span-full" key={news.id}>
-          <FeaturedNewsCard
+          <TFeaturedNewsCard
             altText={news.altText}
             title={news.title}
             href={news.href}

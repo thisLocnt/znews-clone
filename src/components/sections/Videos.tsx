@@ -8,7 +8,7 @@ const VideoEmbed = ({ url, title }: { url: string; title?: string }) => {
   return (
     <div className="relative h-full overflow-hidden">
       <iframe
-        className="absolute top-0 left-0 w-full h-full"
+        className="absolute top-0 left-0 object-contain w-full h-full"
         src={url}
         title={title || 'Video Content'}
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -19,9 +19,9 @@ const VideoEmbed = ({ url, title }: { url: string; title?: string }) => {
 
 export default function Videos() {
   return (
-    <section>
+    <>
       <Headline label="VIDEO" />
-      <div className="mt-4 grid grid-cols-12 gap-x-4 gap-y-4">
+      <div className="grid grid-cols-12 mt-4 gap-x-4 gap-y-4">
         <div className="col-span-12 lg:col-span-8">
           <VideoEmbed
             url="https://www.youtube.com/embed/mZqY7Iwiu6s"
@@ -40,7 +40,7 @@ export default function Videos() {
                 </Link>
                 <Link
                   href={v.categoryLink}
-                  className="text-xs text-gray-500 mt-4 hover:text-cyan-500 block">
+                  className="block mt-4 text-xs text-gray-500 hover:text-cyan-500">
                   {v.category}
                 </Link>
               </div>
@@ -48,6 +48,6 @@ export default function Videos() {
           ))}
         </div>
       </div>
-    </section>
+    </>
   );
 }

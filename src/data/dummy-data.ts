@@ -1,5 +1,6 @@
 import { TBasicNews, TFeaturedNews, TMagazine } from '@/interfaces/common.type';
 import { CategoryData } from '@/interfaces/news.type';
+
 const randomImgUrl = () =>
   `https://picsum.photos/900/600?random=${Math.floor(Math.random() * 1000)}`;
 

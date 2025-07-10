@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { MultiMediaData } from '@/interfaces/page-data';
+import { MultiMediaData } from '@/interfaces/news.type';
 import Headline from '@/components/elements/Headline';
 import { FeaturedCard, ThumbnailCard } from '../elements/NewsCard';
 

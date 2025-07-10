@@ -4,11 +4,11 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import { ChevronRight, ChevronLeft } from 'lucide-react';
-import { BasicNews } from '@/interfaces/front-news';
+import { TBasicNews } from '@/interfaces/common.type';
 import { ThumbnailCard } from '../elements/NewsCard';
 import Headline from '@/components/elements/Headline';
 
-export default function Books({ data }: { data: BasicNews[] }) {
+export default function Books({ data }: { data: TBasicNews[] }) {
   return (
     <section>
       <Headline label="BOOKS" />

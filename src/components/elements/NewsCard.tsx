@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { BasicNews, FeaturedNews } from '@/interfaces/front-news';
+import { TBasicNews, TFeaturedNews } from '@/interfaces/common.type';
 import clsx from 'clsx';
 
 export const TileCard = ({
@@ -8,7 +8,7 @@ export const TileCard = ({
   imageUrl = 'https://placehold.co/600x400',
   title,
   altText = 'News Image',
-}: BasicNews) => {
+}: TBasicNews) => {
   return (
     <Link href={href} className="flex flex-col gap-4 hover:text-cyan-500" aria-label={title}>
       <div className="relative aspect-4/3">
@@ -20,14 +20,14 @@ export const TileCard = ({
           className="object-cover"
         />
       </div>
-      <div className="font-semibold text-sm text-gray-900 pt-1">{title}</div>
+      <div className="pt-1 text-sm font-semibold text-gray-900">{title}</div>
     </Link>
   );
 };
 
-export const ThumbnailCard = ({ altText, href, imageUrl, title, isReverse = false }: BasicNews) => {
+export const ThumbnailCard = ({ altText, href, imageUrl, title, isReverse = false }: TBasicNews) => {
   return (
-    <Link href={href} className="grid grid-cols-5 gap-4 hover:text-cyan-500" aria-label={title}>
+    <Link href={href} className="grid grid-cols-5 gap-3 hover:text-cyan-500" aria-label={title}>
       <div className={clsx(isReverse && 'hidden', 'font-bold text-sm col-span-3')}>{title}</div>
       <div
         className={clsx(
@@ -48,7 +48,7 @@ export const ThumbnailCard = ({ altText, href, imageUrl, title, isReverse = fals
   );
 };
 
-export const FeaturedCard = ({ altText, description, href, imageUrl, title }: FeaturedNews) => {
+export const FeaturedCard = ({ altText, description, href, imageUrl, title }: TFeaturedNews) => {
   return (
     <Link href={href} className="flex flex-col gap-4 group" aria-label={title}>
       <div className="relative aspect-4/3">
@@ -60,10 +60,10 @@ export const FeaturedCard = ({ altText, description, href, imageUrl, title }: Fe
           className="object-cover"
         />
       </div>
-      <div className="text-2xl lg:text-3xl font-bold text-gray-900 group-hover:text-cyan-500">
+      <div className="text-2xl font-bold text-gray-900 lg:text-3xl group-hover:text-cyan-500">
         {title}
       </div>
-      <div className="text-gray-600 text-sm" dangerouslySetInnerHTML={{ __html: description }} />
+      <div className="text-sm text-gray-600" dangerouslySetInnerHTML={{ __html: description }} />
     </Link>
   );
 };

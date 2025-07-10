@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { CategoryData } from '@/interfaces/page-data';
+import { CategoryData } from '@/interfaces/news.type';
 import Headline from '@/components/elements/Headline';
 import { ThumbnailCard, TileCard } from '../elements/NewsCard';
 

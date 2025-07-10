@@ -1,12 +1,12 @@
-import { BasicNews, FeaturedNews } from '@/interfaces/front-news';
+import { TBasicNews, TFeaturedNews } from '@/interfaces/common.type';
 import Headline from '@/components/elements/Headline';
 import { FeaturedCard, TileCard, ThumbnailCard } from '../elements/NewsCard';
 
 interface Props {
   title: string;
-  featured: FeaturedNews;
-  tile: BasicNews[];
-  thumb: BasicNews[];
+  featured: TFeaturedNews;
+  tile: TBasicNews[];
+  thumb: TBasicNews[];
 }
 
 export default function NewsColumns({ title, featured, thumb, tile }: Props) {
