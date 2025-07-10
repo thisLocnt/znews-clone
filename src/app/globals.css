@@ -19,3 +19,23 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.animate-gradient {
+  background-size: 400% 400%;
+  animation: gradient 8s ease infinite;
+}
+
+.animate-gradient {
+  background: linear-gradient(to right, #5B22E8, #FF2362);
+  -webkit-animation: nebulahero 20s infinite linear;
+}
+
+@-webkit-keyframes nebulahero {
+  0% {
+    -webkit-filter: hue-rotate(0deg);
+  }
+
+  100% {
+    -webkit-filter: hue-rotate(-360deg);
+  }
+}
