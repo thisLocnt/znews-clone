@@ -4,6 +4,7 @@ import './globals.css';
 import Header from '@/components/layouts/Header';
 import Footer from '@/components/layouts/Footer';
 import PopupProvider from '@/context/PopupProvider';
+import MobileMenu from '@/components/layouts/MobileMenu';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -39,6 +40,7 @@ export default function RootLayout({
             <Header />
             <main className="flex-grow">{children}</main>
             <Footer />
+            <MobileMenu />
           </div>
         </PopupProvider>
       </body>
