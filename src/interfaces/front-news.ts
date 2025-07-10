@@ -4,6 +4,7 @@ export interface BasicNews {
   imageUrl: string;
   title: string;
   altText: string;
+  isReverse?: boolean;
 }
 
 export interface FeaturedNews extends BasicNews {
