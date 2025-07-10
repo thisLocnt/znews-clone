@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FeaturedNews } from "@/interfaces/front-news";
 
-const FeaturedCard = ({
+const FeaturedNewsCard = ({
   altText,
   description,
   href,
@@ -35,7 +35,7 @@ export default function FeaturedNewsBlocks({ data }: { data: FeaturedNews[] }) {
     <div className="grid grid-cols-12 gap-4 mt-4">
       {data.map((news) => (
         <div className="col-span-full" key={news.id}>
-          <FeaturedCard
+          <FeaturedNewsCard
             altText={news.altText}
             title={news.title}
             href={news.href}

@@ -27,6 +27,7 @@ export default function NewsByCategory({ data }: { data: CategoryData[] }) {
                 title={news.title}
                 altText={news.altText}
                 imageUrl={news.imageUrl}
+                isReverse
               />
             ))}
           </div>
