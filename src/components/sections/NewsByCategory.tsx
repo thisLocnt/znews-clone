@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { CategoryData } from '@/interfaces/news.type';
 import Headline from '@/components/elements/Headline';
-import { ThumbnailCard, TileCard } from '../elements/NewsCard';
+import { TitleCard, ThumbnailCard } from '../elements/NewsCard';
 
 export default function NewsByCategory({ data }: { data: CategoryData[] }) {
   return (
@@ -11,8 +11,8 @@ export default function NewsByCategory({ data }: { data: CategoryData[] }) {
           <Link href={cate.category.link} className="block">
             <Headline label={cate.category.label} />
           </Link>
-          <div className="border-y border-gray-200 py-4">
-            <TileCard
+          <div className="py-4 border-gray-200 border-y">
+            <ThumbnailCard
               href={cate.data.featured.href}
               title={cate.data.featured.title}
               altText={cate.data.featured.altText}
@@ -21,7 +21,7 @@ export default function NewsByCategory({ data }: { data: CategoryData[] }) {
           </div>
           <div className="flex flex-col gap-4 mt-6">
             {cate.data.tile.map((news) => (
-              <ThumbnailCard
+              <TitleCard
                 key={news.id}
                 href={news.href}
                 title={news.title}

@@ -73,17 +73,17 @@ export default async function Home() {
 
   return (
     <main className="w-full px-6 mx-auto mb-16 space-y-8 bg-white max-w-container">
-      <section className="hidden py-4 mb-2 md:block">
+      <div className="hidden py-4 mb-2 md:block">
         <TrendingNews />
-      </section>
+      </div>
 
       <FrontNews {...frontNews} />
 
       <Books data={books} />
 
-      <section className="p-8 bg-yellow-100">
+      <div className="p-8 bg-yellow-100">
         <MultiMedia {...multiMedia} />
-      </section>
+      </div>
 
       <FeaturedNews data={featureNews} />
 

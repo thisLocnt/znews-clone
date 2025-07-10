@@ -241,6 +241,13 @@ export const multiMedia: {
       title: 'Trải nghiệm thực tế ảo với Apple Vision Pro',
       altText: 'Apple Vision Pro',
     },
+    {
+      id: 'thumb4',
+      href: '/video/cong-nghe',
+      imageUrl: randomImgUrl(),
+      title: 'Siêu xe Pagani Huayra Codalunga Speedster giới hạn 10 chiếc',
+      altText: 'Siêu xe Pagani Huayra Codalunga Speedster',
+    },
   ],
 };
 
