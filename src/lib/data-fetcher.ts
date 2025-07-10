@@ -1,6 +1,8 @@
+import { BACKEND_URL } from "./config";
+
 export async function fetchDummyData<T>(endpoint: string): Promise<T> {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/${endpoint}`,
+    `${BACKEND_URL}/api/${endpoint}`,
     {
       next: { revalidate: 3600 },
     }
