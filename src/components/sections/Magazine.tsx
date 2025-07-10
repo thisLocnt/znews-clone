@@ -15,7 +15,8 @@ const MagazineCard = ({ imageUrl, label, link, title }: TMagazine) => {
     <Link
       href={link}
       className="relative block group min-h-[500px] rounded-md overflow-hidden"
-      aria-label={title}>
+      aria-label={title}
+    >
       <div className="absolute inset-0 z-10 transition-colors bg-gray-900/40 group-hover:bg-gray-900/50"></div>
       <Image
         src={imageUrl}
@@ -53,7 +54,8 @@ export default function MagazineBlock({ data }: { data: TMagazine[] }) {
           breakpoints={{
             1024: { slidesPerView: 4 },
             768: { slidesPerView: 2 },
-          }}>
+          }}
+        >
           {data.map((mz) => (
             <SwiperSlide key={mz.id}>
               <MagazineCard {...mz} />
@@ -62,12 +64,14 @@ export default function MagazineBlock({ data }: { data: TMagazine[] }) {
         </Swiper>
         <button
           className="absolute z-10 p-2 -translate-y-1/2 bg-white border border-gray-200 rounded-full top-1/2 -left-5 hover:bg-gray-100 mz-button-prev"
-          aria-label="Previous Slide">
+          aria-label="Previous Slide"
+        >
           <ChevronLeft />
         </button>
         <button
           className="absolute z-10 p-2 -translate-y-1/2 bg-white border border-gray-200 rounded-full top-1/2 -right-5 hover:bg-gray-100 mz-button-next"
-          aria-label="Next Slide">
+          aria-label="Next Slide"
+        >
           <ChevronRight />
         </button>
       </div>

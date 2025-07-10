@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { Ellipsis, Search } from "lucide-react";
-import { navList, fullMenu } from "@/data/dummy-data";
+import { useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { Ellipsis, Search } from 'lucide-react';
+import { navList, fullMenu } from '@/data/dummy-data';
 
 const FullMenu = () => {
   return (
@@ -12,14 +12,8 @@ const FullMenu = () => {
       <div className="px-6 py-4 mx-auto max-w-container">
         <div className="grid grid-cols-12 gap-4">
           {fullMenu.map((m) => (
-            <div
-              className="col-span-6 text-center md:col-span-3 md:text-left"
-              key={m.id}
-            >
-              <Link
-                className="block font-semibold text-gray-900 hover:text-cyan-500"
-                href={m.link}
-              >
+            <div className="col-span-6 text-center md:col-span-3 md:text-left" key={m.id}>
+              <Link className="block font-semibold text-gray-900 hover:text-cyan-500" href={m.link}>
                 {m.label}
               </Link>
             </div>
@@ -43,7 +37,7 @@ const Header = () => {
             width={0}
             height={0}
             sizes="100vw"
-            style={{ height: "100%", width: "auto" }}
+            style={{ height: '100%', width: 'auto' }}
             placeholder="blur"
             blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAIUlEQVQoU2NkYGBg+M+ABQxkYGBg+M8wCjA0MDAwAAAwCw0A8QwA4wAAAABJRU5ErkJggg=="
             alt="ZNews Logo"

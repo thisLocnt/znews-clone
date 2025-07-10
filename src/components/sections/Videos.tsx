@@ -12,7 +12,8 @@ const VideoEmbed = ({ url, title }: { url: string; title?: string }) => {
         src={url}
         title={title || 'Video Content'}
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen></iframe>
+        allowFullScreen
+      ></iframe>
     </div>
   );
 };
@@ -40,7 +41,8 @@ export default function Videos() {
                 </Link>
                 <Link
                   href={v.categoryLink}
-                  className="block mt-4 text-xs text-gray-500 hover:text-cyan-500">
+                  className="block mt-4 text-xs text-gray-500 hover:text-cyan-500"
+                >
                   {v.category}
                 </Link>
               </div>

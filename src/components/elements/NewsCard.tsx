@@ -25,14 +25,21 @@ export const TileCard = ({
   );
 };
 
-export const ThumbnailCard = ({ altText, href, imageUrl, title, isReverse = false }: TBasicNews) => {
+export const ThumbnailCard = ({
+  altText,
+  href,
+  imageUrl,
+  title,
+  isReverse = false,
+}: TBasicNews) => {
   return (
     <Link href={href} className="grid grid-cols-5 gap-3 hover:text-cyan-500" aria-label={title}>
       <div className={clsx(isReverse && 'hidden', 'font-bold text-sm col-span-3')}>{title}</div>
       <div
         className={clsx(
           isReverse ? 'relative aspect-4/3 col-span-2' : 'relative aspect-square col-span-2',
-        )}>
+        )}
+      >
         <Image
           src={imageUrl}
           fill

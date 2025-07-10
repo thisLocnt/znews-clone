@@ -1,4 +1,4 @@
-import { TBasicNews, TFeaturedNews } from "./common.type";
+import { TBasicNews, TFeaturedNews } from './common.type';
 
 export interface FrontNewsData {
   tile: TBasicNews[];

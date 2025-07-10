@@ -23,7 +23,8 @@ export default function MultiMedia({ featured, thumb }: MultiMediaData) {
                 <Link
                   href={item.link}
                   className="font-semibold text-gray-900 hover:text-orange-500"
-                  aria-label={item.label}>
+                  aria-label={item.label}
+                >
                   {item.label}
                 </Link>
               </li>
@@ -43,10 +44,7 @@ export default function MultiMedia({ featured, thumb }: MultiMediaData) {
         </div>
         <div className="col-span-full md:col-span-6 grid grid-cols-subgrid gap-4">
           {thumb.map((news) => (
-            <div
-              className="col-span-full sm:col-span-6 md:col-span-3"
-              key={news.id}
-            >
+            <div className="col-span-full sm:col-span-6 md:col-span-3" key={news.id}>
               <ThumbnailCard
                 altText={news.altText}
                 title={news.title}

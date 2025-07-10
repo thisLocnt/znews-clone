@@ -10,7 +10,8 @@ export default function HashTagLink({ href, label }: HashTagLinkProps) {
     <Link
       href={href}
       className="inline-block px-2 py-1 rounded-full text-sm text-gray-900 bg-gray-200 hover:text-white hover:bg-gradient-to-r hover:from-green-500 hover:to-cyan-500"
-      aria-label={`Hashtag ${label}`}>
+      aria-label={`Hashtag ${label}`}
+    >
       # {label}
     </Link>
   );

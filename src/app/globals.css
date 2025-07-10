@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
   --background: #ffffff;
@@ -26,7 +26,7 @@ body {
 }
 
 .animate-gradient {
-  background: linear-gradient(to right, #5B22E8, #FF2362);
+  background: linear-gradient(to right, #5b22e8, #ff2362);
   -webkit-animation: nebulahero 20s infinite linear;
 }
 
