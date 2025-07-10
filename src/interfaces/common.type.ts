@@ -1,4 +1,4 @@
-export interface BasicNews {
+export interface TBasicNews {
   id?: string;
   href: string;
   imageUrl: string;
@@ -7,14 +7,15 @@ export interface BasicNews {
   isReverse?: boolean;
 }
 
-export interface FeaturedNews extends BasicNews {
+export interface TFeaturedNews extends TBasicNews {
   description: string;
 }
 
-export interface Magazine {
+export interface TMagazine {
   id: string;
   label: string;
   title: string;
   link: string;
   imageUrl: string;
+  description?: string;
 }
