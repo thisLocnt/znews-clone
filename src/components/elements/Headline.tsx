@@ -1,11 +1,12 @@
+// src/components/elements/Headline.tsx
 interface HeadlineProps {
   label: string;
 }
 
-export default function HeadLine({ label }: HeadlineProps) {
+export default function Headline({ label }: HeadlineProps) {
   return (
-    <div className="font-bold text-2xl py-2 border-b border-black/20 relative pl-6">
-      <div className="absolute left-1 top-2.5 h-2/4 -skew-x-16 w-1.5 bg-orange-600"></div>
+    <div className="relative pl-6 py-2 border-b border-gray-200 font-bold text-2xl text-gray-900">
+      <span className="absolute left-1 top-2.5 h-3/4 w-1.5 bg-orange-600 -skew-x-12"></span>
       {label}
     </div>
   );
