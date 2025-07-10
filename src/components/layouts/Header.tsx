@@ -3,76 +3,108 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Ellipsis, Search } from 'lucide-react';
-import { navList, fullMenu } from '@/data/dummy-data';
+import { Search, X } from 'lucide-react';
+import { navList } from '@/data/dummy-data';
+import FullMenu from './FullMenu';
 
-const FullMenu = () => {
-  return (
-    <div className="absolute left-0 z-20 w-full bg-white border-t border-gray-200 top-12 lg:top-14">
-      <div className="px-6 py-4 mx-auto max-w-container">
-        <div className="grid grid-cols-12 gap-4">
-          {fullMenu.map((m) => (
-            <div className="col-span-6 text-center md:col-span-3 md:text-left" key={m.id}>
-              <Link className="block font-semibold text-gray-900 hover:text-cyan-500" href={m.link}>
-                {m.label}
-              </Link>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-};
+interface NavItem {
+  id: string;
+  name: string;
+  redirectUrl: string;
+}
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
+  const [animating, setAnimating] = useState(false);
+  const [showClose, setShowClose] = useState(false);
+  const [closeIconIn, setCloseIconIn] = useState(false);
+
+  // Handle menu toggle with animation timing
+  const handleMenuClick = () => {
+    if (!showMenu) {
+      setAnimating(true);
+      setTimeout(() => {
+        setAnimating(false);
+        setShowMenu(true);
+        setShowClose(true);
+        setCloseIconIn(false);
+        setTimeout(() => {
+          setCloseIconIn(true);
+        }, 10);
+      }, 200);
+    } else {
+      setCloseIconIn(false);
+      setTimeout(() => {
+        setShowClose(false);
+        setShowMenu(false);
+      }, 200);
+    }
+  };
 
   return (
-    <header className="sticky top-0 z-20 bg-white border-b border-gray-200">
-      <div className="flex items-center justify-between gap-8 px-6 py-4 mx-auto max-w-container">
-        <Link href="/" className="relative w-[150px] h-10">
+    <header className="sticky top-0 z-50 bg-white border-b border-gray-200">
+      <div className="flex items-center justify-between gap-4 px-4 py-4 mx-auto max-w-[1100px] sm:px-0">
+        {/* Logo */}
+        <Link href="/" className="relative w-[120px] h-8 lg:w-[150px] lg:h-10 flex-shrink-0">
           <Image
             src="https://static.znews.vn/images/logo-znews-light-2.svg"
-            width={0}
-            height={0}
-            sizes="100vw"
-            style={{ height: '100%', width: 'auto' }}
+            fill
+            sizes="(max-width: 900px) 120px, 150px"
+            style={{ objectFit: 'contain' }}
             placeholder="blur"
-            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAIUlEQVQoU2NkYGBg+M+ABQxkYGBg+M8wCjA0MDAwAAAwCw0A8QwA4wAAAABJRU5ErkJggg=="
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAIUlEQVQoU2NkYGBg+M+സ.0A8QwA4wAAAABJRU5ErkJggg=="
             alt="ZNews Logo"
           />
         </Link>
-        <div className="flex items-center order-first gap-8 lg:order-none">
-          <nav className="hidden lg:block">
-            <ul className="flex items-center gap-8 font-semibold text-gray-900">
-              {navList.map((item) => (
-                <li key={item.id}>
-                  <Link
-                    className="block py-4 border-b-2 border-transparent hover:text-cyan-500 hover:border-cyan-500"
-                    href={item.redirectUrl}
-                  >
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+
+        {/* Navigation and Menu Button */}
+        <div className="flex items-center flex-1 order-first gap-4 lg:gap-8 lg:order-none">
+          {/* Desktop Navigation */}
+          <nav className="items-center hidden gap-6 lg:flex">
+            {navList.map((item: NavItem) => (
+              <Link
+                key={item.id}
+                href={item.redirectUrl}
+                className="relative py-4 text-sm font-semibold text-gray-900 hover:text-cyan-500 group">
+                {item.name}
+                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-transparent group-hover:bg-cyan-500 transition-colors duration-200"></span>
+              </Link>
+            ))}
           </nav>
+
+          {/* Menu Toggle Button */}
           <button
-            className="text-gray-900 hover:text-cyan-500"
-            onClick={() => setShowMenu((prev) => !prev)}
-            aria-label="Toggle Menu"
-          >
-            <Ellipsis />
+            onClick={handleMenuClick}
+            className="w-10 text-gray-900 hover:text-cyan-500"
+            aria-label="Toggle Menu">
+            {!showMenu ? (
+              <div className="flex items-center gap-1">
+                <span className="w-1.5 h-1.5 bg-gray-900 rounded-full"></span>
+                <span
+                  className={`w-1.5 h-1.5 bg-gray-900 rounded-full transition-opacity duration-200 ${
+                    animating ? 'opacity-20' : 'opacity-100'
+                  }`}></span>
+                <span className="w-1.5 h-1.5 bg-gray-900 rounded-full"></span>
+              </div>
+            ) : showClose ? (
+              <div
+                className={`transition-transform duration-400 ${
+                  closeIconIn ? 'rotate-90' : '-rotate-90'
+                }`}>
+                <X size={24} />
+              </div>
+            ) : null}
           </button>
         </div>
+
+        {/* Search Button and Input */}
         <div className="relative">
           <button
-            className="text-gray-900 hover:text-cyan-500"
             onClick={() => setShowSearch((prev) => !prev)}
-            aria-label="Toggle Search"
-          >
-            <Search />
+            className="text-gray-900 hover:text-cyan-500"
+            aria-label="Toggle Search">
+            <Search size={20} />
           </button>
           {showSearch && (
             <div className="absolute right-0 w-48 top-10">
@@ -85,7 +117,14 @@ const Header = () => {
           )}
         </div>
       </div>
-      {showMenu && <FullMenu />}
+
+      {/* Full Menu (Popup) */}
+      <div
+        className={`transition-opacity duration-300 ${
+          showMenu ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        }`}>
+        <FullMenu open={showMenu} setOpen={setShowMenu} />
+      </div>
     </header>
   );
 };
